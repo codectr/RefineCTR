@@ -2,20 +2,21 @@
 """
 @project: RefineCTR
 """
-
+import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-import numpy as np
 
+class Skip(nn.Module):
+    def forward(self, x_emb):
+        return x_emb, None
 
 class BasicFRCTR(nn.Module):
     def __init__(self, field_dims, embed_dim, FRN=None):
         super(BasicFRCTR, self).__init__()
         self.embedding = FeaturesEmbedding(field_dims, embed_dim)
-        if not FRN:
-            raise ValueError("Feature Refinement Module is None")
         self.frn = FRN
+        if not FRN:
+            self.frn = Skip()
         self.num_fields = len(field_dims)
 
     def forward(self, x):
@@ -35,7 +36,6 @@ class FeaturesLinear(nn.Module):
 
 
 class FeaturesEmbedding(torch.nn.Module):
-
     def __init__(self, field_dims, embed_dim):
         super().__init__()
         self.embedding = torch.nn.Embedding(sum(field_dims), embed_dim)
