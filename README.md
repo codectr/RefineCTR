@@ -1,4 +1,4 @@
-![RefineCTR](D:\code\RefineCTR\RefineCTR.png)
+![RefineCTR](https://github.com/codectr/RefineCTR/blob/main/RefineCTR.png)
 
 The code and experimental results of《A Comprehensive Analysis and Evaluation of Feature Refinement Modules for CTR Prediction》.  
 
