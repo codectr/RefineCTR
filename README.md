@@ -34,6 +34,7 @@ We extrct 14 FR modules from existing works. And FAL equires that the input data
 
 # Basic CTR Models
 
+
 |      | Model         | Publication | Patterns     |
 | ---- | ------------- | ----------- | ------------ |
 | 1    | FM            | ICDM'10     | A SIngle     |
@@ -60,13 +61,13 @@ We extrct 14 FR modules from existing works. And FAL equires that the input data
 | 21   | AFM           | IJCAI'17    | A   SIngle   |
 | 22   | FINT          | arXiv' 21   | A   SIngle   |
 
+Generally, stacked models (e.g., FM. CN) only use pattern A (Single FR module); parallel models can adopt both pattern B (single FR module) and Pattern C (two separate FR modules).
 Including basic model, we can generate 308(22*14) augmented  models. Meanwhile, for parallel CTR model,  we can assigning different FR module for different FI sub-networks. Now we assign two same FR modules for different sub-networks.  
 
 # Experiment Results
 
 We will continue to update and upload the latest experimental results and analysis.
 
-## Criteo
 
 ## Criteo
 
@@ -111,6 +112,7 @@ We will continue to update and upload the latest experimental results and analys
 # Get started
 
 1. **Test existing model with existing  module**.
+Users can choose the appropriate CTR model and feature refinement module conveniently according their needs.
 ```
 cd evaluation/mains
 CUDA_VISIBLE_DEVICES=0 python main_frappe_base --model 0 --module 0
