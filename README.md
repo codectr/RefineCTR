@@ -1,4 +1,4 @@
-<div align=center>![RefineCTR](https://github.com/codectr/RefineCTR/blob/main/RefineCTR.png)
+<center>![RefineCTR](https://github.com/codectr/RefineCTR/blob/main/RefineCTR.png)<center>
 
 The code and experimental results of《A Comprehensive Analysis and Evaluation of Feature Refinement Modules for CTR Prediction》.  
 
@@ -8,7 +8,7 @@ As shown in the following figures: (A) and (B) inserting a single FR module betw
 
 
 
-<div align=center>![The primary backbone structures of common CTR prediction models ](https://github.com/codectr/RefineCTR/blob/main/refineCTR%20framework.png)
+<center>![The primary backbone structures of common CTR prediction models ](https://github.com/codectr/RefineCTR/blob/main/refineCTR%20framework.png)<center>
 
 
 
