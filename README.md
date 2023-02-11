@@ -87,7 +87,9 @@ We will continue to update and upload the latest experimental results and analys
 | DCNV2(2)  | 0.8128 | 0.8136 | 0.8125 | 0.8140 | 0.8135 | 0.8142 | 0.8139 | 0.8140 | 0.8137  | 0.8138 | 0.8131 | 0.8144 | 0.8143  | 0.8144  |
 | IMP       | -      | 0.18%  | 0.03%  | 0.13%  | 0.15%  | 0.12%  | 0.09%  | 0.11%  | 0.11%   | 0.18%  | 0.22%  | 0.33%  | 0.35%   | 0.37%   |
 
+### Assigning Two Seperate Feature Refinement Modules for Different sub-networks based on DeepFM.
 
+<table><tr> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_auc.jpg" border=0></td> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_ll.jpg" border=0></td> </tr></table> 
 
 ## Frappe
 
