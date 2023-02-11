@@ -89,7 +89,7 @@ We will continue to update and upload the latest experimental results and analys
 
 ### Assigning Two Seperate Feature Refinement Modules for Different sub-networks based on DeepFM.
 
-<table border=1,rules=none><tr> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_auc.jpg" border=0></td> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_ll.jpg" border=0></td> </tr></table> 
+<table border=0,rules=none><tr> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_auc.jpg" border=0></td> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_ll.jpg" border=0></td> </tr></table> 
 
 ## Frappe
 
