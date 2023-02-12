@@ -6,8 +6,8 @@
 import torch
 import torch.nn as nn
 
-from common import OuterProductNetwork2
 from FRCTR.common import FeaturesEmbedding, InnerProductNetwork, OuterProductNetwork, MultiLayerPerceptron, BasicFRCTR
+from common import OuterProductNetwork2
 
 
 class IPNN(nn.Module):
@@ -30,9 +30,10 @@ class IPNN(nn.Module):
         pred_y = self.mlp(x)
         return pred_y
 
-class IPNN(BasicFRCTR):
+
+class IPNNFrn(BasicFRCTR):
     def __init__(self, field_dims, embed_dim, FRN=None, mlp_layers=(400, 400, 400), dropout=0.5):
-        super(IPNN, self).__init__(field_dims, embed_dim, FRN)
+        super(IPNNFrn, self).__init__(field_dims, embed_dim, FRN)
         num_fields = len(field_dims)
         self.pnn = InnerProductNetwork(num_fields)
         self.embed_output_dim = num_fields * embed_dim
@@ -71,6 +72,7 @@ class OPNN(nn.Module):
         pred_y = self.mlp(x)
         return pred_y
 
+
 class OPNNFrn(BasicFRCTR):
     def __init__(self, field_dims, embed_dim, FRN=None, mlp_layers=(400, 400, 400),
                  dropout=0.5, kernel_type="vec"):
@@ -87,7 +89,7 @@ class OPNNFrn(BasicFRCTR):
 
     def forward(self, x):
         x_emb = self.embedding(x)
-        x_emb,weight = self.frn(x_emb)
+        x_emb, weight = self.frn(x_emb)
         cross_opnn = self.pnn(x_emb)
 
         x = torch.cat([x_emb.view(-1, self.embed_output_dim), cross_opnn], dim=1)
