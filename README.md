@@ -4,14 +4,14 @@ The code and experimental results of《A Comprehensive Analysis and Evaluation o
 
 Click-through rate (CTR) prediction is widely used in academia and industry. Most CTR prediction models follow the same design paradigm: Feature Embedding (FE) layer, Feature Interaction (FI) layer, and Prediction layer. RefineCTR inserts existing feature refinement modules between FE and FI layer to boost basic CTR models performance, which also sumarizes and compares those modules' effectiveness comprehensively.  The structure of RefinedCTR is shown in the following:
 
-<div align="center"><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/refinectr%20structure.png"></div>
+<div align="center"><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/refinectr%20structure.png" width="40%"></div>
 
 The implement of FR modules is shown in the following figure : (A) and (B) inserting a single FR module between FR and FI layer for stacked and parallel CTR models; (C) assigning two separate FR modules for different FI sub-network to generate discriminate feature distributions for parallel models.
 
 
 
 <!-- <center>![The primary backbone structures of common CTR prediction models ](https://github.com/codectr/RefineCTR/blob/main/refineCTR%20framework.png)<center> -->
-<div align="center"><img src="https://github.com/codectr/RefineCTR/blob/main/refineCTR%20framework.png"></div>
+<div align="center" size=><img src="https://github.com/codectr/RefineCTR/blob/main/refineCTR%20framework.png" width="60%"></div>
 
 
 # Feature Refinement Modules
