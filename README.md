@@ -13,7 +13,7 @@ As shown in the following figures: (A) and (B) inserting a single FR module betw
 
 # Feature Refinement Modules
 
-We extrct 14 FR modules from existing works. And FAL equires that the input data not anonymous. Therefore, we do not evaluate FAL in the experiments as Criteo dataset is anonymous.
+We extrct 14 FR modules from existing works. And FAL equires that the input data not anonymous. Therefore, we do not evaluate FAL in the experiments as Criteo dataset is anonymous. It is worth noting that we would fix the hyper-parameters of the basic CTR models when applying these modules to ensure the fairness of the experiments. Relatively speaking, this also leaves space for improvement for each augmented model.
 
 | Year | Module  | Literature  |
 | :--: | :-----: | :---------: |
