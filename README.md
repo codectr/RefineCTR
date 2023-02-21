@@ -73,7 +73,7 @@ We will continue to update and upload the latest experimental results and analys
 
 
 ## Criteo
-
+### AUC of Criteo
 | Modules   | SKIP   | FEN    | SENET  | FWN    | DFEN   | DRM    | VGate  | BGate  | SelfAtt | TCE    | PFFN   | GFRL   | FRNet-V | FRNet-B |
 | --------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------ | ------ | ------- | ------- |
 | FM        | 0.8080 | 0.8100 | 0.8102 | 0.8100 | 0.8117 | 0.8107 | 0.8090 | 0.8091 | 0.8099  | 0.8112 | 0.8129 | 0.8134 | 0.8139  | 0.8140  |
@@ -90,6 +90,7 @@ We will continue to update and upload the latest experimental results and analys
 | DCNV2(2)  | 0.8128 | 0.8136 | 0.8125 | 0.8140 | 0.8135 | 0.8142 | 0.8139 | 0.8140 | 0.8137  | 0.8138 | 0.8131 | 0.8144 | 0.8143  | 0.8144  |
 | IMP       | -      | 0.18%  | 0.03%  | 0.13%  | 0.15%  | 0.12%  | 0.09%  | 0.11%  | 0.11%   | 0.18%  | 0.22%  | 0.33%  | 0.35%   | 0.37%   |
 
+### Logloss of Criteo
 | Modules   | SKIP   | FEN    | SENET  | FWN    | DFEN   | DRM    | VGate  | BGate  | SelfAtt | TCE    | PFFN   | GFRL   | FRNet-V | FRNet-B |
 | --------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------ | ------ | ------- | ------- |
 | FM        | 0.4437 | 0.4418 | 0.4416 | 0.4418 | 0.4401 | 0.4411 | 0.4425 | 0.4424 | 0.4408  | 0.4405 | 0.4391 | 0.4384 | 0.4380  | 0.4378  |
@@ -111,7 +112,7 @@ We will continue to update and upload the latest experimental results and analys
 <table border=0,rules=none><tr> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_auc.jpg" border=0></td> <td><img src="https://github.com/codectr/RefineCTR/blob/main/evaluation/figure/deepfm_ll.jpg" border=0></td> </tr></table> 
 
 ## Frappe
-
+### AUC of Frappe
 | Modules   | SKIP   | FEN    | SENET  | FWN    | DFEN   | DRM    | VGate  | BGate  | SelfAtt | TCE    | PFFN   | GFRL   | FRNet-V | FRNet-B |
 | --------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------ | ------ | ------- | ------- |
 | FM        | 0.9786 | 0.9789 | 0.9800 | 0.9808 | 0.9799 | 0.9820 | 0.9801 | 0.9803 | 0.9806  | 0.9800 | 0.9822 | 0.9821 | 0.9828  | 0.9831  |
@@ -127,6 +128,7 @@ We will continue to update and upload the latest experimental results and analys
 | DCNV2     | 0.9830 | 0.9833 | 0.9835 | 0.9831 | 0.9839 | 0.9837 | 0.9833 | 0.9826 | 0.9829  | 0.9833 | 0.9831 | 0.9840 | 0.9839  | 0.9845  |
 | DCNV2(2)  | 0.9830 | 0.9838 | 0.9838 | 0.9838 | 0.9844 | 0.9838 | 0.9837 | 0.9828 | 0.9832  | 0.9841 | 0.9835 | 0.9845 | 0.9841  | 0.9849  |
 | IMP       |        | 0.10%  | 0.04%  | 0.08%  | 0.12%  | 0.11%  | 0.08%  | 0.02%  | 0.09%   | 0.11%  | 0.10%  | 0.17%  | 0.20%   | 0.22%   |
+
 
 | Modules    | SKIP   | FEN    | SENET  | FWN    | DFEN   | DRM    | VGate  | BGate  | SelfAtt | TCE    | PFFN   | GFRL   | FRNet-V | FRNet-B |
 | ---------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------- | ------ | ------ | ------ | ------- | ------- |
