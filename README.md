@@ -60,7 +60,7 @@ We extrct 14 FR modules from existing works. And FAL equires that the input data
 | 17   | FwFM          | WWW'18      | A   SIngle   |
 | 18   | FiBiNET       | RecSys'19   | C   Separate |
 | 19   | PNN           | ICDM'16     | A   SIngle   |
-| 20   | HOFM          | NIPS'16     | A   SIngle   |
+| 20   | DCAP          | CIKM'21     | A   SIngle   |
 | 21   | AFM           | IJCAI'17    | A   SIngle   |
 | 22   | FINT          | arXiv' 21   | A   SIngle   |
 
