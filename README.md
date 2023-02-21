@@ -56,13 +56,13 @@ We extrct 14 FR modules from existing works. And FAL equires that the input data
 | 14   | xDeepFM       | KDD'18      | B   SIngle   |
 | 15   | xDeepFM       | KDD'18      | C   Separate |
 |      |               |             |              |
-| 16   | NFM           | SIGIR'17    | A   SIngle   |
-| 17   | FwFM          | WWW'18      | A   SIngle   |
-| 18   | FiBiNET       | RecSys'19   | C   Separate |
-| 19   | PNN           | ICDM'16     | A   SIngle   |
-| 20   | DCAP          | CIKM'21     | A   SIngle   |
-| 21   | AFM           | IJCAI'17    | A   SIngle   |
-| 22   | FINT          | arXiv' 21   | A   SIngle   |
+| 16   | AFM           | IJCAI'17    | A   SIngle   |
+| 17   | NFM           | SIGIR'17    | A   SIngle   |
+| 18   | FwFM          | WWW'18      | A   SIngle   |
+| 19   | FINT          | arXiv' 21   | A   SIngle   |
+| 20   | PNN           | ICDM'16     | A   SIngle   |
+| 21   | FiBiNET       | RecSys'19   | C   Separate |
+| 22   | DCAP          | CIKM'21     | A   SIngle   |
 
 Generally, stacked models (e.g., FM. CN) only use pattern A (Single FR module); parallel models can adopt both pattern B (single FR module) and Pattern C (two separate FR modules).
 Including basic model, we can generate 308(22*14) augmented  models. Meanwhile, for parallel CTR model,  we can assigning different FR module for different FI sub-networks. Now we assign two same FR modules for different sub-networks.  
