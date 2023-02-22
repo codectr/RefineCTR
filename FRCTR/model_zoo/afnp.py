@@ -9,7 +9,7 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from FRCTR.common import FeaturesEmbedding, MultiLayerPerceptron, BasicFRCTR
+from FRCTR.common import FeaturesEmbedding, MultiLayerPerceptron, BasicFRCTR, FeaturesLinear
 
 
 class LNN(torch.nn.Module):
@@ -69,9 +69,9 @@ class LNN(torch.nn.Module):
 class AFN(torch.nn.Module):
     def __init__(self, field_dims, embed_dim, LNN_dim=10, mlp_dims=(400, 400, 400), dropouts=(0.5, 0.5)):
         super().__init__()
+        self.linear = FeaturesLinear(field_dims)
         self.num_fields = len(field_dims)
-        self.embedding = FeaturesEmbedding(field_dims, embed_dim)  # Embedding
-
+        self.embedding = FeaturesEmbedding(field_dims, embed_dim)
         self.LNN_dim = LNN_dim
         self.LNN_output_dim = self.LNN_dim * embed_dim
         self.LNN = LNN(self.num_fields, embed_dim, LNN_dim)
@@ -79,14 +79,12 @@ class AFN(torch.nn.Module):
         self.mlp = MultiLayerPerceptron(self.LNN_output_dim, mlp_dims, dropouts[0])
 
     def forward(self, x):
-        """
-        :param x: Long tensor of size ``(batch_size, num_fields)``
-        """
+
         x_emb = self.embedding(x)
 
         lnn_out = self.LNN(x_emb)
 
-        pred_y = self.mlp(lnn_out)
+        pred_y = self.mlp(lnn_out) + self.linear(x)
         return pred_y
 
 
@@ -95,7 +93,7 @@ class AFNPlus(torch.nn.Module):
                  mlp_dims2=(400, 400, 400), dropouts=(0.5, 0.5)):
         super().__init__()
         self.num_fields = len(field_dims)
-        # self.linear = FeaturesLinear(field_dims)  # Linear
+        self.linear = FeaturesLinear(field_dims)  # Linear
         self.embedding = FeaturesEmbedding(field_dims, embed_dim)  # Embedding
 
         self.LNN_dim = LNN_dim
@@ -116,16 +114,16 @@ class AFNPlus(torch.nn.Module):
         x_emb = self.embedding(x)
 
         lnn_out = self.LNN(x_emb)
-        x_dnn = self.mlp(x_emb.view(-1, self.embed_output_dim))
+        x_dnn = self.mlp2(x_emb.view(-1, self.embed_output_dim))
         x_lnn = self.mlp(lnn_out)
-
-        pred_y = self.lr(torch.cat([x_lnn, x_dnn], dim=1))
+        pred_y = self.linear(x) + x_lnn + x_dnn
         return pred_y
 
 
 class AFNFrn(BasicFRCTR):
     def __init__(self, field_dims, embed_dim, FRN=None, LNN_dim=16, mlp_dims=(400, 400, 400), dropouts=(0.5, 0.5)):
         super().__init__(field_dims, embed_dim, FRN)
+        self.linear = FeaturesLinear(field_dims)
         self.num_fields = len(field_dims)
         self.LNN_dim = LNN_dim
         self.LNN_output_dim = self.LNN_dim * embed_dim
@@ -141,7 +139,7 @@ class AFNFrn(BasicFRCTR):
 
         lnn_out = self.LNN(x_emb)
 
-        pred_y = self.mlp(lnn_out)
+        pred_y = self.mlp(lnn_out) + self.linear(x)
         return pred_y
 
 
@@ -149,6 +147,7 @@ class AFNPlusFrn(BasicFRCTR):
     def __init__(self, field_dims, embed_dim, FRN=None, LNN_dim=10, mlp_dims=(400, 400, 400),
                  mlp_dims2=(400, 400, 400), dropouts=(0.5, 0.5)):
         super().__init__(field_dims, embed_dim, FRN)
+        self.linear = FeaturesLinear(field_dims)
         self.num_fields = len(field_dims)
 
         self.LNN_dim = LNN_dim
@@ -172,8 +171,7 @@ class AFNPlusFrn(BasicFRCTR):
         lnn_out = self.LNN(x_emb)
         x_dnn = self.mlp2(x_emb.view(-1, self.embed_output_dim))
         x_lnn = self.mlp(lnn_out)
-
-        pred_y = self.lr(torch.cat([x_lnn, x_dnn], dim=1))
+        pred_y = self.linear(x) + x_lnn + x_dnn
         return pred_y
 
 
@@ -182,7 +180,7 @@ class AFNPlusFrnP(nn.Module):
                  mlp_dims2=(400, 400, 400), dropouts=(0.5, 0.5)):
         super().__init__()
         self.num_fields = len(field_dims)
-        # self.linear = FeaturesLinear(field_dims)  # Linear
+        self.linear = FeaturesLinear(field_dims)  # Linear
         self.embedding = FeaturesEmbedding(field_dims, embed_dim)  # Embedding
 
         if not FRN1 or not FRN2:
@@ -210,5 +208,6 @@ class AFNPlusFrnP(nn.Module):
         x_lnn = self.mlp(lnn_out)
 
         x_dnn = self.mlp2(x_emb2.reshape(-1, self.embed_output_dim))
-        pred_y = self.lr(torch.cat([x_lnn, x_dnn], dim=1))
+        pred_y = self.linear(x) + x_lnn + x_dnn
+        # pred_y = self.lr(torch.cat([x_lnn, x_dnn], dim=1))
         return pred_y
