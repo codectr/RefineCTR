@@ -2,5 +2,3 @@
 """
 @project: RefineCTR
 """
-
-text
